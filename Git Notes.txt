@@ -1,0 +1,7 @@
+git add . - sends edited files to staging area
+git commit -m "Comment" - Commits files in staging area
+git log - Shows commits and edits previously done
+code . - Opens all files in the directory in a coding environment
+git push - Push work to main branch
+git push origin main - Pushes to main (Useful when we have more branches)
+git commit - Commit without message but it opens VS Code to type message

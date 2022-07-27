@@ -1,0 +1,18 @@
+flex is actually a shorthand for flex-grow, flex-shrink and flex-basis. When we put flex: 1, we we are applying 
+flex: 1 1 0.
+
+When we applied flex: 1 to every div inside our container, we were telling every div to grow the same amount. The result of this is that every div ends up the exact same size. If we instead add flex: 2 to just one of the divs, then that div would grow to 2x the size of the others.
+Adding flex: 1 to .item makes each of the items grow to fill the available space.
+
+For flex-shrink, if you dont want it to shrink, then it should have flex-shrink: 0. Higher shrink numbers means it will shrink more than normal.
+
+Flex basis sets the initial size of a flex item. 
+flex-direction is normally row but it can be changed to column
+
+When flex-direction is set to column, flex:1 makes all of them small or not visible because flex-basis talks about height
+
+justify-content aligns items across the main axis
+
+justify content and align items must be applied to the container.
+
+Setting gap on a flex container simply adds a specified space between flex items.

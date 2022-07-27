@@ -1,0 +1,151 @@
+Comments in HTML start with <!-- and end with a -->
+
+Chaining classes in CSS - .class1.class2 selects the item with class names class1 AND class2. Can chain id and class too. eg. .class1#class2. Only same elements can be chained
+
+Descendant Combinator -  .ancestor .child will select .child only if it is nested inside .ancestor
+Child Selectors - E > F	Matches any F element that is a child of an element E.
+Adjacent Selectors - E + F	Matches any F element immediately preceded by a sibling element E.
+
+@font-face {
+    font-family: fontname;
+    src: url(https://fonts.gstatic.com/s/lato/v16/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2);
+    font-weight: italic;
+}
+
+Specifity - 1) ID selectors (most specific selector)
+2) Class selectors
+3) Type selectors
+If both class selectors, the one with more class selectors (more specific) will be used
+
+Memorize how to calculate specificity!
+
+Start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute selector), add 1 for each element selector or pseudo-element. 
+
+Note: Inline style gets a specificity value of 1000, and is always given the highest priority!
+
+Note 2: There is one exception to this rule: if you use the !important rule, it will even override inline styles!
+
+<form action="url-where-you-want-to-submit-form-data">
+  <input>
+</form>
+
+../ moves one directory up
+
+Radio buttons are a type of input.
+By wrapping an input element inside of a label element it will automatically associate the radio button input with the label element surrounding it.
+It is considered best practice to set a for attribute on the label element, with a value that matches the value of the id attribute of the input element.
+
+<input id="indoor" type="radio" name="indoor-outdoor">
+<label for="indoor">Indoor</label> 
+
+OR
+
+<label for="indoor"> 
+  <input id="indoor" type="radio" name="indoor-outdoor">Indoor 
+</label>
+
+
+All related checkbox inputs should have the same name attribute.
+
+Inputs of type radio and checkbox report their values from the value attribute.
+
+Here, you have two radio inputs. When the user submits the form with the indoor option selected, the form data will include the line: indoor-outdoor=indoor. This is from the name and value attributes of the "indoor" input.
+
+If you omit the value attribute, the submitted form data uses the default value, which is on. In this scenario, if the user clicked the "indoor" option and submitted the form, the resulting form data would be indoor-outdoor=on, which is not useful. So the value attribute needs to be set to something to identify the option.
+
+You can set a checkbox or radio button to be checked by default using the checked attribute.
+
+An element's padding controls the amount of space between the element's content and its border.
+
+An element's margin controls the amount of space between an element's border and surrounding elements.
+
+Clockwise notation for margin or padding: top, right, bottom, left
+
+
+For this challenge, you will use the [attr=value] attribute selector to style the checkboxes
+
+[type='radio'] {
+  margin: 20px 0px 20px 0px;
+}
+
+Relative units, such as em or rem, are relative to another length value. For example, em is based on the size of an element's font. If you use it to set the font-size property itself, it's relative to the parent's font-size.
+
+
+--------------FLEXBOX-----------------
+Flex-direction property to the parent item and setting it to row(default) or column, row-reverse or column-reverse
+
+justify-content: center;, which aligns all the flex items to the center inside the flex container. Other options include:
+
+flex-start: aligns items to the start of the flex container. For a row, this pushes the items to the left of the container. For a column, this pushes the items to the top of the container. This is the default alignment if no justify-content is specified.
+
+flex-end: aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.
+
+space-between: aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container. For example, in a row the first item is against the left side of the container, the last item is against the right side of the container, then the remaining space is distributed evenly among the other items.
+
+space-around: similar to space-between but the first and last items are not locked to the edges of the container, the space is distributed around all the items with a half space on either end of the flex container.
+
+space-evenly: Distributes space evenly between the flex items with a full space at either end of the flex container
+
+add it to the flex container
+
+
+The align-items property is similar to justify-content. Recall that the justify-content property aligned flex items along the main axis. For rows, the main axis is a horizontal line and for columns it is a vertical line.
+
+Flex containers also have a cross axis which is the opposite of the main axis. For rows, the cross axis is vertical and for columns, the cross axis is horizontal.
+
+JUSTIFY CONTENT FOR MAIN AXIS AND ALIGN ITEMS FOR CROSS AXIS
+
+The different values available for align-items include:
+
+flex-start: aligns items to the start of the flex container. For rows, this aligns items to the top of the container. For columns, this aligns items to the left of the container.
+
+flex-end: aligns items to the end of the flex container. For rows, this aligns items to the bottom of the container. For columns, this aligns items to the right of the container.
+
+center: align items to the center. For rows, this vertically aligns items (equal space above and below the items). For columns, this horizontally aligns them (equal space to the left and right of the items).
+
+stretch: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom. This is the default value if no align-items value is specified.
+
+baseline: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.
+
+
+Using the flex-wrap property tells CSS to wrap items. This means extra items move into a new row or column.
+
+FOR FLEX ITEMS:
+When it's used, it allows an item to shrink if the flex container is too small. Items shrink when the width of the parent container is smaller than the combined widths of all the flex items within it.
+
+The flex-shrink property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a flex-shrink value of 1 and the other has a flex-shrink value of 3, the one with the value of 3 will shrink three times as much as the other.
+
+The opposite of flex-shrink is the flex-grow property. Recall that flex-shrink controls the size of the items when the container shrinks. The flex-grow property controls the size of items when the parent container expands.
+
+The flex-basis property specifies the initial size of the item before CSS makes adjustments with flex-shrink or flex-grow.
+
+The units used by the flex-basis property are the same as other size properties (px, em, %, etc.). The value auto sizes items based on the content.
+
+There is a shortcut available to set several flex properties at once. The flex-grow, flex-shrink, and flex-basis properties can all be set together by using the flex property.
+
+For example, flex: 1 0 10px; will set the item to flex-grow: 1;, flex-shrink: 0;, and flex-basis: 10px;.
+
+The default property settings are flex: 0 1 auto;.
+
+The order property is used to tell CSS the order of how flex items appear in the flex container. By default, items will appear in the same order they come in the source HTML. The property takes numbers as values, and negative numbers can be used.
+
+align-self accepts the same values as align-items and will override any value set by the align-items property.
+
+
+----------BOX MODEL-----------------
+ALL ELEMENTS IN A PAGE ARE BOXES
+
+padding increases the space between the edge of a box and the content inside of it.
+
+margin increases the space between a box and any others that sit next to it.
+
+border adds space (even if it’s only a pixel or two) between the margin and the padding.
+
+The box-sizing property allows us to include the padding and border in an element's total width and height.
+Options are content-box and border-box
+
+DISPLAY PROPERTY - Block elements start on a new line
+Inline elements appear next to the old elements. In general, you do not want to try to put extra padding or margin on inline elements.
+Inline-block elements behave like inline elements, but with block-style padding and margin
+
+DIVS AND SPANS - Div is a block-level element by default whereas span is an inline-level element by default
