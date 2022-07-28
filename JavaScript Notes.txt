@@ -13,3 +13,45 @@ let sum = (a, b) => {  // the curly brace opens a multiline function
   let result = a + b;
   return result; // if we use curly braces, then we need an explicit "return"
 };
+
+******ARRAYS******
+const arr = [1, 2, 3, 4];
+arr.toString() converts the array to 1,2,3,4 string.
+arr.join("*") converts the array to 1*2*3*4 string (specify the separator inside the join brackets).
+pop() removes the last element from the array.
+push(something) pushes something onto the end of the array.
+The push() method returns the new array length:
+let length = arr.push("Kiwi");
+shift() removes first element and shifts all other elements to lower index.
+shift() returns the value that was shifted out
+unshift(something) adds something to the beginning of the array.
+unshift(something) returns the new array length.
+delete arr[index] can be used to delete elements in the array
+The concat() method creates a new array by merging (concatenating) existing arrays:
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+
+const myChildren = myGirls.concat(myBoys);
+
+The splice() method adds new items to an array.
+
+The slice() method slices out a piece of an array.
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+
+The splice() method returns an array with the deleted items
+
+The slice() method slices out a piece of an array into a new array.
+
+This example slices out a part of an array starting from array element 1 ("Orange"):
+
+Example
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1);
+= Orange,Lemon,Apple,Mango
