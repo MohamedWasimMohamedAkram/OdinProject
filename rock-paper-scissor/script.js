@@ -1,12 +1,16 @@
 // console.log(random, choice[random]);
 
+
 function getComputerChoice() {
     const choice = ["Rock", "Paper", "Scissor"];
     const random = Math.floor(Math.random() * choice.length);
     return choice[random];
 }
 
-let playerSelection = prompt("Rock, Paper or Scissor?");
+function rock(){
+    const computerChoice = getComputerChoice();
+
+}
 
 function rockPaperScissor(playerSelection, computerSelection){
     if((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() == 'scissor') 
