@@ -1,31 +1,60 @@
 // console.log(random, choice[random]);
-
+let userChoice = null;
+let userCount = 0;
+let compCount = 0;
+let rockButton = document.querySelector(".rockButton");
+let paperButton = document.querySelector(".paperButton");
+let scissorButton = document.querySelector(".scissorButton");
+let gameButtons = document.querySelectorAll("button");
+let userScore = document.querySelector(".userScore");
+let computerScore = document.querySelector(".computerScore");
+let resultText = document.querySelector(".resultText");
 
 function getComputerChoice() {
-    const choice = ["Rock", "Paper", "Scissor"];
-    const random = Math.floor(Math.random() * choice.length);
-    return choice[random];
+  const choice = ["Rock", "Paper", "Scissor"];
+  const random = Math.floor(Math.random() * choice.length);
+  return choice[random];
 }
 
-function rock(){
-    const computerChoice = getComputerChoice();
 
-}
 
-function rockPaperScissor(playerSelection, computerSelection){
-    if((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() == 'scissor') 
-    || (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')
-    || (playerSelection.toLowerCase() === 'scissor' && computerSelection.toLowerCase() === 'paper')){
-        console.log(`User played ${playerSelection} and Computer played ${computerSelection}: User wins`);
+gameButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let compChoice = getComputerChoice();
+    if (
+      (e.target.textContent === "Rock" && compChoice === "Scissor") ||
+      (e.target.textContent === "Paper" && compChoice === "Rock") ||
+      (e.target.textContent === "Scissor" && compChoice === "Paper")
+    ) {
+      userCount++;
+      userScore.textContent = `User: ${userCount}`
+      console.log(userCount);
+      console.log(compCount);
+      resultText.textContent = `USER WINS ROUND: User played ${e.target.textContent} and Computed played ${compChoice}`;
+    } else if (
+      (e.target.textContent === "Scissor" && compChoice === "Rock") ||
+      (e.target.textContent === "Rock" && compChoice === "Paper") ||
+      (e.target.textContent === "Paper" && compChoice === "Scissor")
+    ) {
+      compCount++;
+      computerScore.textContent = `Computer: ${compCount}`
+      console.log(userCount);
+      console.log(compCount);
+      resultText.textContent = `Computer WINS ROUND: User played ${e.target.textContent} and Computed played ${compChoice}`;
+    } else if (e.target.textContent === compChoice) {
+      console.log("Draw");
+      resultText.textContent = `DRAW: User played ${e.target.textContent} and Computed played ${compChoice}`;
     }
-    else if(playerSelection.toLowerCase() === computerSelection.toLowerCase()){
-        console.log(`User played ${playerSelection} and Computer played ${computerSelection}: Draw`);
-    }else if(playerSelection.toLowerCase() !== 'rock' || playerSelection.toLowerCase() !== 'scissor' || playerSelection.toLowerCase() !== 'paper'){
-        alert("Incorrect Input");
+    if(userCount === 5){
+        resultText.textContent = `User Wins`;
+        gameButtons.forEach(dis => {
+            dis.disabled = "true";
+        });
+    }else if (compCount === 5){
+        resultText.textContent = `Computer Wins`;
+        gameButtons.forEach(dis => {
+            dis.disabled = "true";
+        });
     }
-    else{
-        console.log(`User played ${playerSelection} and Computer played ${computerSelection}: Computer wins`);
-    }
-}
-
-rockPaperScissor(playerSelection, getComputerChoice());
+  });
+});
